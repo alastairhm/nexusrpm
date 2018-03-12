@@ -1,8 +1,14 @@
 #!/bin/bash
-echo "Downloading latest Nexus 3 build for Unix"
-wget --quiet https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+DVER=${DOWNLOAD_VERSION:=latest}
+echo "Downloading ${DVER} Nexus 3 build for Unix"
+if [[ $DVER == 'latest' ]]
+then
+	wget --quiet https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+else
+	wget --quiet https://download.sonatype.com/nexus/3/nexus-$DVER-unix.tar.gz
+fi
 echo "Uncompressing"
-tar xf latest-unix.tar.gz
+tar xf *-unix.tar.gz && rm -f *-unix.tar.gz
 VERSION=$(ls -d nexus-* |cut -d '-' -f 2-)
 NAME=${VERSION/-/.}
 echo "Creating RPM for ${VERSION}"
