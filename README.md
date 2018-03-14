@@ -15,8 +15,14 @@ Run with
 
 `docker run -it -e TARGET_PACKAGE=deb --name rpmbuilder alastairhm/nexusrpm:latest`
 
+**Specify a loction**
+
+`docker run -it -e INSTALL_DIR=/opt/nexus --name rpmbuilder alastairhm/nexusrpm:latest`
+
 **Parameters**
 
 DOWNLOAD_VERSION : optional, specify the version of Nexus to download, defaults to "latest" release.
 
 TARGET_PACKAGE : optional, specify package type "rpm" or "deb", defaults to "rpm".
+
+INSTALL_DIR : optional, specify the location you want to install Nexus, defaults to "/var/lib/nexus"
