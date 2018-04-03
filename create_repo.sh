@@ -16,5 +16,6 @@ NAME=${VERSION/-/.}
 echo "Creating RPM for ${VERSION}"
 /usr/local/bin/fpm -s dir -t $TARGET -n nexus -v $NAME nexus-$VERSION/=$LOCATION/nexus-$VERSION sonatype-work/=$LOCATION/sonatype-work
 FILE=$(ls nexus*$TARGET)
-echo "Copy RPM out of container with command 'docker cp rpmbuilder:/build/${FILE} ./'"
+cp $FILE /output/
+echo "Copy RPM out of container with command 'docker cp rpmbuilder:/output/${FILE} ./'"
 

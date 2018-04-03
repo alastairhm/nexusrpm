@@ -19,6 +19,10 @@ Run with
 
 `docker run -it -e INSTALL_DIR=/opt/nexus --name rpmbuilder alastairhm/nexusrpm:latest`
 
+**Automatically copy output**
+
+`docker run -it -v $PWD:/output --name rpmbuilder alastairhm/nexusrpm:latest`
+
 **Parameters**
 
 DOWNLOAD_VERSION : optional, specify the version of Nexus to download, defaults to "latest" release.
