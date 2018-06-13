@@ -21,7 +21,7 @@ Run with
 
 **Automatically copy output**
 
-`docker run -it -v $PWD:/output --name rpmbuilder alastairhm/nexusrpm:latest`
+`docker run -it --rm -v $PWD:/output --name rpmbuilder alastairhm/nexusrpm:latest`
 
 **Parameters**
 
